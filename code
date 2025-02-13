@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delilah Speers Hollander - Resume</title>
+  <!-- Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: #333;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header p {
+      font-size: 1rem;
+    }
+    
+    header a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    section {
+      margin-bottom: 2rem;
+    }
+    
+    section h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    
+    .edu-item, .job, .course-item, .skill-item, .project-item {
+      margin-bottom: 1.5rem;
+    }
+    
+    .edu-title, .job-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    .edu-date, .job-date {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+    
+    a {
+      color: #007acc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    a:hover {
+      color: #005b99;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: #fff;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Delilah Speers Hollander</h1>
+    <p>2405 Wrights Way, Pittsburgh, Pennsylvania 15203 ● 412-522-3008 ● <a href="mailto:delilahshollander@gmail.com">delilahshollander@gmail.com</a></p>
+  </header>
+  
+  <div class="container">
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu-item">
+        <div class="edu-title">Pittsburgh CAPA (6-12) / Chatham University</div>
+        <div class="edu-date">2016-2020 / 2021-Present</div>
+        <p>Candidate for a Bachelor’s in Criminology, with a Minor in Applied Data Analytics and Business, and a Certificate in Forensic Social Work.</p>
+      </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Experience</h2>
+      
+      <div class="job">
+        <div class="job-title">Data Specialist, Race To The Case</div>
+        <div class="job-date">November 2024</div>
+        <ul>
+          <li>Served as the Team Data Specialist in the University of Pittsburgh’s Race to the Case Supply Chain Management competition.</li>
+          <li>Analyzed complex data to drive strategic decision-making under high-pressure conditions.</li>
+        </ul>
+      </div>
+      
+      <div class="job">
+        <div class="job-title">Intern, YWCA Greater Pittsburgh</div>
+        <div class="job-date">November 2023 – June 2024</div>
+        <ul>
+          <li>Developed a comprehensive map from raw data, illustrating demographic populations by zip code and county.</li>
+          <li>Analyzed multiple data sources to create detailed demographic profiles and designed informative flyers for board reports and presentations on the Mission In Action project funded by a Mackenzie Scott Grant.</li>
+        </ul>
+      </div>
+      
+      <div class="job">
+        <div class="job-title">Teacher, Dor Hadash Religious School, Rodef Shalom</div>
+        <div class="job-date">September 2022 – Present</div>
+        <ul>
+          <li>Designed and implemented community activities promoting self-driven exploration of Judaism, including Hebrew language instruction and facilitating prayer learning for Bat/Bar Mitzvahs or services.</li>
+          <li>Orchestrated initiatives to foster a self-driven learning environment for community members.</li>
+        </ul>
+      </div>
+      
+      <div class="job">
+        <div class="job-title">Camp Counselor and Lifeguard, Chatham Arts and Music Day Camp</div>
+        <div class="job-date">June – August (2018, 2019, 2021, 2022)</div>
+        <ul>
+          <li>Ensured safety and punctual transportation of children to and from classes while adhering to safety protocols.</li>
+          <li>Created and led engaging activities encouraging exploration of topics such as space, mathematics, history, and art.</li>
+        </ul>
+      </div>
+      
+      <div class="job">
+        <div class="job-title">Gallery Assistant, Fireborn Studios, Pittsburgh, PA</div>
+        <div class="job-date">November 2019 – February 2021</div>
+        <ul>
+          <li>Assisted with studio operations including clay recycling, cleaning after classes, and loading kilns to maintain workflow efficiency.</li>
+          <li>Mixed glazes and participated in retail by selling ceramics while providing excellent customer service.</li>
+        </ul>
+      </div>
+      
+      <div class="job">
+        <div class="job-title">Gap Year, Young Judaea Year Course</div>
+        <div class="job-date">August 2020 – May 2021</div>
+        <ul>
+          <li>Immersed in Israeli culture for 9 months in Tel Aviv and Jerusalem, engaging in volunteer work and exploring diverse political perspectives.</li>
+          <li>Completed a semester of academic study while actively engaging with local communities.</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Relevant Courses Section -->
+    <section id="courses">
+      <h2>Relevant Courses</h2>
+      <ul>
+        <li>Juvenile Justice, CCAC 2023</li>
+        <li>Data Visualization, Chatham 2025</li>
+        <li>History of Crime and Punishment, Chatham 2024</li>
+        <li>Behavioral Research, Chatham 2024</li>
+        <li>Statistics and Research Design, Chatham 2025</li>
+        <li>Introduction to Sociology, Chatham 2023</li>
+        <li>Programming, Chatham 2024</li>
+        <li>Business Statistics, CCAC 2023</li>
+        <li>Criminal Investigations, Chatham 2024</li>
+        <li>General Psychology, Chatham 2021</li>
+      </ul>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Programming: Python, HTML, SQL</li>
+        <li>Languages: Hebrew, Hindi, Spanish, German</li>
+        <li>Software: Microsoft Suites, ArcGIS, Google Workspace</li>
+      </ul>
+    </section>
+    
+    <!-- Projects / Website Builds Section -->
+    <section id="projects">
+      <h2>Projects & Website Builds</h2>
+      <ul>
+        <li><a href="https://dhollander24.github.io/studysmart-kits/" target="_blank">StudySmart Kits</a> – Final project for Entrepreneurship class.</li>
+        <li><a href="https://dhollander24.github.io/mahloketmatters.dorhadash/" target="_blank">Mahloket Matters</a> – Created to assist with a seminar led by Karen Morris.</li>
+      </ul>
+    </section>
+  </div>
+  
+  <footer>
+    &copy; 2025 Delilah Speers Hollander
+  </footer>
+</body>
+</html>
