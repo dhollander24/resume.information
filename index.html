@@ -8,11 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #FFB6C1;       /* Light Pink */
-      --primary-dark: #e79aac;  /* Slightly darker pink for hover */
-      --secondary: #F0FFF0;     /* Lighter Green (Honeydew) */
-      --bg: #FFF0F5;            /* Very Light Pink */
-      --text: #333;
+      --border: #CCCCCC;       /* Grey outline */
+      --heading: #006400;      /* Dark green for headings and bold text */
+      --bg: #ffffff;           /* White background */
+      --container-bg: #ffffff;  /* White container background */
+      --text: #000000;         /* Black text */
+      --hover: #004d00;        /* Darker green for hover effects */
     }
     
     /* Basic Reset */
@@ -31,36 +32,37 @@
     }
     
     header {
-      background: linear-gradient(135deg, var(--primary), #FFD1DC);
-      color: #fff;
-      padding: 2rem 1rem;
+      background: var(--bg);
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 2rem 1rem;
+      border-bottom: 1px solid var(--border);
     }
     
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
+      color: var(--heading);
       margin-bottom: 0.5rem;
     }
     
     header p {
       font-size: 1.1rem;
+      color: var(--text);
     }
     
     header a {
-      color: #fff;
+      color: var(--heading);
       text-decoration: underline;
     }
     
     .container {
       max-width: 1000px;
       margin: 2rem auto;
-      background: var(--secondary);
+      background: var(--container-bg);
       padding: 2rem 3rem;
       border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 2px solid var(--border);
     }
     
     section {
@@ -70,7 +72,8 @@
     section h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
-      border-bottom: 2px solid var(--primary);
+      color: var(--heading);
+      border-bottom: 2px solid var(--border);
       padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
       letter-spacing: 0.5px;
@@ -80,7 +83,7 @@
       font-family: 'Playfair Display', serif;
       margin-top: 1.5rem;
       font-size: 1.6rem;
-      color: var(--primary);
+      color: var(--heading);
       margin-bottom: 0.8rem;
     }
     
@@ -92,6 +95,7 @@
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.3rem;
+      color: var(--heading);
       margin-bottom: 0.3rem;
     }
     
@@ -115,13 +119,13 @@
     }
     
     a {
-      color: var(--primary);
+      color: var(--heading);
       text-decoration: none;
       transition: color 0.3s;
     }
     
     a:hover {
-      color: var(--primary-dark);
+      color: var(--hover);
     }
     
     /* Contact Button Styles */
@@ -131,29 +135,32 @@
     }
     
     .contact-button {
-      background-color: var(--primary);
-      color: #fff;
+      background-color: var(--bg);
+      border: 2px solid var(--heading);
+      color: var(--heading);
       padding: 1rem 2rem;
       text-decoration: none;
       border-radius: 50px;
       font-size: 1.2rem;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
       display: inline-block;
       margin-bottom: 1rem;
     }
     
     .contact-button:hover {
-      background-color: var(--primary-dark);
+      background-color: var(--heading);
+      color: var(--bg);
       transform: translateY(-3px);
     }
     
     footer {
       text-align: center;
       padding: 1rem;
-      background: var(--primary);
-      color: #fff;
-      margin-top: 2rem;
+      background: var(--bg);
+      color: var(--text);
+      border-top: 1px solid var(--border);
       font-size: 0.95rem;
+      margin-top: 2rem;
     }
     
     /* Responsive */
@@ -189,13 +196,12 @@
       <div class="edu-item">
         <div class="edu-title">Pittsburgh CAPA (6-12)</div>
         <div class="edu-date">2016-2020</div>
-        <p>Completed high school studies at Pittsburgh CAPA, gaining a solid academic foundation.</p>
       </div>
       <h3>College</h3>
       <div class="edu-item">
         <div class="edu-title">Chatham University</div>
         <div class="edu-date">2021-Present</div>
-        <p>Candidate for a Bachelor’s in Criminology with a Minor in Applied Data Analytics and Business, and a Certificate in Forensic Social Work.</p>
+        <p>Candidate for a Bachelor’s in Criminology, with a double Minor in Applied Data Analytics and Business, and a Certificate in Forensic Social Work.</p>
       </div>
     </section>
     
@@ -206,13 +212,13 @@
       <div class="job">
         <div class="job-title">Data Specialist, Race To The Case</div>
         <div class="job-date">November 2024</div>
-        <p>I served as the Team Data Specialist in the University of Pittsburgh’s Race to the Case Supply Chain Management competition. In this high-stakes, fast-paced environment, I was responsible for gathering, processing, and analyzing complex data sets to identify trends and insights that were critical for strategic decision-making. Working under tight deadlines and high pressure, I collaborated closely with my team to optimize supply chain processes, streamline operations, and propose data-driven solutions that ultimately helped improve efficiency and competitive performance.</p>
+        <p>I served as Team Data Specialist for Chatham, in the University of Pittsburgh’s Race to the Case Business competition. In this high-stakes, fast-paced environment, I was responsible for gathering, processing, and analyzing complex data sets to identify trends and insights that were critical for strategic decision-making in supply chain management. Working under tight deadlines and high pressure, I collaborated closely with my team to optimize supply chain processes, streamline operations, and propose data-driven solutions that ultimately helped improve efficiency and competitive performance.</p>
       </div>
       
       <div class="job">
         <div class="job-title">Intern, YWCA Greater Pittsburgh</div>
         <div class="job-date">November 2023 – June 2024</div>
-        <p>During my internship at YWCA Greater Pittsburgh, I developed a comprehensive demographic map by extracting and processing raw data from various sources. This involved not only visualizing demographic populations by zip code and county but also synthesizing the information into detailed profiles that revealed community trends and needs. I designed informative flyers and presentation materials for board meetings as part of the Mission In Action project, a key initiative funded by a Mackenzie Scott Grant. My role required strong analytical skills, attention to detail, and the ability to communicate complex information in an accessible format.</p>
+        <p>During my paid internship at YWCA Greater Pittsburgh, I developed a comprehensive demographic map by extracting and processing raw data from various sources. This involved not only visualizing demographic populations by zip code and county but also synthesizing the information into detailed profiles that revealed community trends and needs. I designed informative flyers and presentation materials for board meetings as part of the Mission In Action project, a key initiative funded by a Mackenzie Scott Grant. My role required strong analytical skills, attention to detail, and the ability to communicate complex information in an accessible format.</p>
       </div>
       
       <div class="job">
@@ -225,12 +231,6 @@
         <div class="job-title">Camp Counselor and Lifeguard, Chatham Arts and Music Day Camp</div>
         <div class="job-date">June – August (2018, 2019, 2021, 2022)</div>
         <p>As a Camp Counselor and Lifeguard, I was entrusted with ensuring the safety and well-being of children during summer sessions. I coordinated the timely and safe transportation of children to and from classes while adhering to strict safety protocols. Beyond my safety responsibilities, I created and led a range of engaging activities designed to spark curiosity and learning in areas such as space exploration, mathematics, history, and art. This role enhanced my leadership and organizational skills while fostering a fun and educational atmosphere for young campers.</p>
-      </div>
-      
-      <div class="job">
-        <div class="job-title">Gallery Assistant, Fireborn Studios, Pittsburgh, PA</div>
-        <div class="job-date">November 2019 – February 2021</div>
-        <p>At Fireborn Studios, I worked as a Gallery Assistant supporting daily studio operations. My responsibilities included managing clay recycling, cleaning up after classes, and loading kilns to ensure a smooth workflow. I also mixed glazes to maintain the quality and consistency of ceramic products and engaged in front-shop retail, where I interacted with customers, provided product insights, and facilitated sales. This experience honed my technical, operational, and customer service skills in a creative environment.</p>
       </div>
       
       <div class="job">
@@ -250,76 +250,6 @@
       </ul>
     </section>
     
-    <!-- Academic Courses Section -->
-    <section id="courses">
-      <h2>Academic Courses</h2>
-      
-      <h3>Transfer Credits</h3>
-      <ul>
-        <li>ECO103 - Principles of Microeconomics</li>
-        <li>CJC124 - Juvenile Justice</li>
-        <li>BUS122 - Business Statistics</li>
-        <li>BIO100 - Life Science</li>
-        <li>CJC151 - Criminal Justice Systems</li>
-        <li>ANT117 - Globalization</li>
-      </ul>
-      
-      <h3>2021 Fall</h3>
-      <ul>
-        <li>ART115S:001 - Painting I (Instructor: James Louks)</li>
-        <li>PSY101:002 - General Psychology (Instructor: Monica Riordan)</li>
-        <li>CRM101:001 - Introduction to Criminal Justice (Instructor: Christine Sarteschi)</li>
-        <li>SDE101:008 - Strategies for Success in College (Instructor: Amanda Oaks)</li>
-        <li>ENG105:004 - First-Year Writing (Instructor: Carrie Helms)</li>
-        <li>SSC101:090 - Introduction to Anthropology (Instructor: Jean-Jacques Sene)</li>
-      </ul>
-      
-      <h3>2022 Spring</h3>
-      <ul>
-        <li>POL100:001 - Introduction to Comparative Politics (Instructor: David Rossbach)</li>
-        <li>PSY213:001 - Statistics and Research Design (Instructor: Michelle Niculescu)</li>
-        <li>HIS241:001 - History of Islam (Instructor: Luke Peterson)</li>
-        <li>CRM310:001 - Survey of Corrections (Instructor: Joshua Ellsworth)</li>
-        <li>ENG105:902 - First-Year Writing (Instructor: Anissa Wardi)</li>
-        <li>POL340:090 - Political Psychology (Instructor: Jennie Sweet-Cushman)</li>
-      </ul>
-      
-      <h3>2022 Fall</h3>
-      <ul>
-        <li>POL104:001 - Introduction to International Relations (Instructor: David Rossbach)</li>
-        <li>PSY314W:001 - Foundations of Behavioral Research (Instructor: Monica Riordan)</li>
-        <li>CRM320:001 - Criminalization of Mental Illness (Instructor: Christine Sarteschi)</li>
-        <li>HIS201W:001 - Modern Middle East (Instructor: Luke Peterson)</li>
-      </ul>
-      
-      <h3>2024 Spring</h3>
-      <ul>
-        <li>BUS257:090 - Business Law and Business Ethics (Instructor: Ashley Hart)</li>
-        <li>BUS171:001 - Information Systems and Operations (Instructor: Paul Steinhaus)</li>
-        <li>ENG105:003 - First-Year Writing (Instructor: Jacey Krueger)</li>
-        <li>CRM332:001 - History of Crime and Punishment (Instructor: Joshua Ellsworth)</li>
-        <li>EXS105:902 - Personal Nutrition (Instructor: Ryan Wockley)</li>
-      </ul>
-      
-      <h3>2024 Fall</h3>
-      <ul>
-        <li>BUS105:001 - Foundations of Business (Instructor: John Stakeley)</li>
-        <li>CRM305:001 - Criminal Investigations (Instructor: Joshua Ellsworth)</li>
-        <li>BUS413:090 - Logistics and Operations (Instructor: Ron Summerhill)</li>
-        <li>CMP120:001 - Introduction to Programming (Instructor: Phil Light)</li>
-        <li>BUS357:901 - Strategy and Entrepreneurial Ventures (Instructor: Keratiloe Sishoma Mogotsi)</li>
-      </ul>
-      
-      <h3>2025 Spring</h3>
-      <ul>
-        <li>IND104:901 - LSAT Preparation (Instructor: Doug Austin)</li>
-        <li>BIO123:901 - Nutrition (Instructor: Shirley Duffy)</li>
-        <li>CMP283:001 - Database Management Systems (Instructor: Eric Coopey)</li>
-        <li>CRM225W:901 - Criminology (Instructor: Christine Sarteschi)</li>
-        <li>CRM310:001 - Survey of Corrections (Instructor: Joshua Ellsworth)</li>
-      </ul>
-    </section>
-    
     <!-- Projects / Website Builds Section -->
     <section id="projects">
       <h2>Projects & Website Builds</h2>
@@ -334,6 +264,9 @@
       <h2>Papers & Writing Pieces</h2>
       <ul>
         <li><a href="#">Research Paper on Data-Driven Policy Analysis</a> – An exploration of how data analytics can inform effective policy decisions.</li>
+        <li><a href="#">Essay on International Economic Development</a> – A discussion on economic resilience and growth in post-conflict environments.</li>
+        <li><a href="#">Forensic Social Work: Challenges and Opportunities</a> – An analysis of the intersection of social work and forensic practices.</li>
+      </ul>
     </section>
     
     <!-- Contact Button -->
