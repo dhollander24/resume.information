@@ -4,119 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Delilah Speers Hollander - Resume</title>
-  <!-- Google Fonts for a modern look -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <!-- Google Fonts for a sophisticated look -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #FFB6C1;    /* Light Pink */
-      --secondary: #F0FFF0;  /* Lighter Green (Honeydew) */
-      --bg: #FFF0F5;         /* Very Light Pink */
+      --primary: #FFB6C1;       /* Light Pink */
+      --primary-dark: #e79aac;  /* Slightly darker pink for hover */
+      --secondary: #F0FFF0;     /* Lighter Green (Honeydew) */
+      --bg: #FFF0F5;            /* Very Light Pink */
       --text: #333;
     }
+    
     /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       font-family: 'Roboto', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.8;
+      padding-bottom: 2rem;
     }
+    
     header {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), #FFD1DC);
       color: #fff;
       padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+    
     header h1 {
-      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
+    
     header p {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
+    
     header a {
       color: #fff;
       text-decoration: underline;
     }
+    
     .container {
       max-width: 1000px;
       margin: 2rem auto;
       background: var(--secondary);
-      padding: 2rem;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 2rem 3rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       border: 2px solid var(--primary);
     }
+    
     section {
       margin-bottom: 2rem;
     }
+    
     section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
       border-bottom: 2px solid var(--primary);
       padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-    section h3 {
-      margin-top: 1.5rem;
-      font-size: 1.4rem;
-      color: var(--primary);
-    }
-    .edu-item, .job, .course-item, .skill-item, .project-item {
       margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
     }
+    
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 1.5rem;
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+    
+    .edu-item, .job, .course-item, .skill-item, .project-item {
+      margin-bottom: 1.8rem;
+    }
+    
     .edu-title, .job-title {
+      font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
     }
+    
     .edu-date, .job-date {
       font-style: italic;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
     }
+    
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    
     ul {
       list-style: disc;
-      margin-left: 1.5rem;
+      margin-left: 1.8rem;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
     }
+    
     a {
       color: var(--primary);
       text-decoration: none;
       transition: color 0.3s;
     }
+    
     a:hover {
-      color: #e699a3;
+      color: var(--primary-dark);
     }
+    
     /* Contact Button Styles */
     .contact-button-container {
       text-align: center;
       margin-top: 2rem;
     }
+    
     .contact-button {
       background-color: var(--primary);
       color: #fff;
       padding: 1rem 2rem;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 50px;
       font-size: 1.2rem;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-block;
+      margin-bottom: 1rem;
     }
+    
     .contact-button:hover {
-      background-color: #e699a3;
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
     }
+    
     footer {
       text-align: center;
       padding: 1rem;
       background: var(--primary);
       color: #fff;
+      margin-top: 2rem;
+      font-size: 0.95rem;
     }
+    
     /* Responsive */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       .container {
         margin: 1rem;
@@ -283,6 +326,16 @@
       <ul>
         <li><a href="https://dhollander24.github.io/studysmart-kits/" target="_blank">StudySmart Kits</a> – Final project for Entrepreneurship class.</li>
         <li><a href="https://dhollander24.github.io/mahloketmatters.dorhadash/" target="_blank">Mahloket Matters</a> – Created to assist with a seminar led by Karen Morris.</li>
+      </ul>
+    </section>
+    
+    <!-- Papers & Writing Pieces Section -->
+    <section id="papers">
+      <h2>Papers & Writing Pieces</h2>
+      <ul>
+        <li><a href="#">Research Paper on Data-Driven Policy Analysis</a> – An exploration of how data analytics can inform effective policy decisions.</li>
+        <li><a href="#">Essay on International Economic Development</a> – A discussion on economic resilience and growth in post-conflict environments.</li>
+        <li><a href="#">Forensic Social Work: Challenges and Opportunities</a> – An analysis of the intersection of social work and forensic practices.</li>
       </ul>
     </section>
     
