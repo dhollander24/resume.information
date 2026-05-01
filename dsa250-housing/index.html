@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA 250: Housing Price Analysis — Delilah Hollander</title>
+    <meta name="description" content="Housing price analysis using linear regression on the Ames, Iowa dataset. DSA 250 project by Delilah Hollander.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /*  Nav  */
+        .toc {
+            background: #e8f1ff;
+            border-radius: 14px;
+            padding: 16px 24px;
+            margin-bottom: 36px;
+        }
+        .toc h3 { margin: 0 0 10px; color: #2a5298; font-family: 'Fredoka', sans-serif; }
+        .toc ol { margin: 0; padding-left: 22px; }
+        .toc li { margin: 4px 0; }
+
+        /*  Metric cards  */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #e8f1ff, #ddeeff);
+            border-radius: 14px;
+            padding: 18px 14px;
+            text-align: center;
+            border: 1px solid #c8dfff;
+        }
+        .metric-card .val {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.9em;
+            color: #1a3a8f;
+            display: block;
+        }
+        .metric-card .lbl {
+            font-size: 0.85em;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        /*  Model comparison  */
+        .model-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .model-box {
+            border-radius: 14px;
+            padding: 18px 20px;
+        }
+        .model-box.simple { background: #f0f4ff; border: 2px solid #b0c8ff; }
+        .model-box.multi  { background: #eaf7f0; border: 2px solid #7fc9a0; }
+        .model-box h4 { margin: 0 0 10px; font-family: 'Fredoka', sans-serif; font-size: 1.1em; }
+        .model-box .model-r2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2em;
+            color: #1a3a8f;
+        }
+        .model-box.multi .model-r2 { color: #1a7a4a; }
+        .model-box table { width: 100%; border-collapse: collapse; font-size: 0.9em; margin-top: 8px; }
+        .model-box td { padding: 3px 6px; }
+        .model-box td:last-child { font-weight: 600; text-align: right; }
+
+        /*  Equation box  */
+        .equation {
+            background: #1e1e2e;
+            color: #cdd6f4;
+            border-radius: 14px;
+            padding: 20px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            line-height: 2;
+            margin: 20px 0;
+        }
+        .equation .pos { color: #a6e3a1; }
+        .equation .neg { color: #f38ba8; }
+        .equation .key { color: #89dceb; }
+
+        /*  Prediction table  */
+        table.pred {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            margin: 16px 0;
+        }
+        table.pred th {
+            background: #2a5298;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 400;
+        }
+        table.pred td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        table.pred tr:nth-child(even) td { background: #f5f8ff; }
+        table.pred td.price {
+            font-weight: 700;
+            color: #1a3a8f;
+        }
+
+        /*  Findings callouts  */
+        .finding {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: #f5f9ff;
+            border-left: 5px solid #3366cc;
+            border-radius: 0 14px 14px 0;
+            padding: 14px 18px;
+            margin: 14px 0;
+        }
+        .finding .icon { font-size: 1.6em; flex-shrink: 0; }
+        .finding p { margin: 0; }
+
+        /*  Responsive  */
+        @media (max-width: 600px) {
+            .model-grid { grid-template-columns: 1fr; }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3366cc;
+            color: #fff;
+            border-radius: 8px;
+            padding: 6px 16px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1em;
+            text-decoration: none;
+            margin: 4px 4px 4px 0;
+        }
+        .badge:hover { background: #1a3a8f; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!--  Header  -->
+    <header>
+        <h1> DSA 250: Housing Price Analysis</h1>
+        <p><strong>By:</strong> Delilah Hollander &nbsp;|&nbsp; <strong>Course:</strong> DSA 250 — Data Science &amp; Analytics</p>
+
+    </header>
+
+    <!--  Table of Contents  -->
+    <nav class="toc">
+        <h3> Table of Contents</h3>
+        <ol>
+            <li><a href="#intro">Project Overview</a></li>
+            <li><a href="#data">Data Source &amp; Preparation</a></li>
+            <li><a href="#eda">Exploratory Data Analysis</a></li>
+            <li><a href="#scatter">Color-Encoded Scatter Plots</a></li>
+            <li><a href="#regression">Linear Regression Model</a></li>
+            <li><a href="#predictions">Sample Predictions</a></li>
+            <li><a href="#takeaways">Key Takeaways</a></li>
+        </ol>
+    </nav>
+
+    <!--  Key Stats  -->
+    <div class="metrics">
+        <div class="metric-card">
+            <span class="val">1,460</span>
+            <span class="lbl">Home Sales Analyzed</span>
+        </div>
+        <div class="metric-card">
+            <span class="val">$180,921</span>
+            <span class="lbl">Average Sale Price</span>
+        </div>
+        <div class="metric-card">
+            <span class="val">0.706</span>
+            <span class="lbl">Model R² Score</span>
+        </div>
+        <div class="metric-card">
+            <span class="val">±$47,468</span>
+            <span class="lbl">Avg Prediction Error (RMSE)</span>
+        </div>
+    </div>
+
+    <!--  1. Intro  -->
+    <section id="intro">
+        <h2>1. Project Overview</h2>
+        <p>For DSA 250, I analyzed 1,460 home sales in Ames, Iowa to identify which home features most strongly predict sale price. I examined four predictors — <strong>square footage, bathrooms, year built, and bedrooms</strong> — first with exploratory analysis, then built a <strong>multiple linear regression model</strong> to quantify each variable's true impact and make predictions.</p>
+        <p><strong>Research Questions:</strong></p>
+        <ul>
+            <li>How strongly does above-ground square footage predict sale price?</li>
+            <li>Do homes with more full bathrooms sell for more?</li>
+            <li>Are newer homes priced higher than older ones?</li>
+            <li>Does bedroom count still predict price once size is controlled for?</li>
+        </ul>
+    </section>
+
+    <!--  2. Data  -->
+    <section id="data">
+        <h2>2. Data Source &amp; Preparation</h2>
+        <p><strong>Source:</strong> Ames Housing Dataset (Kaggle — 81 original columns, 1,460 rows). I narrowed it to 5 key variables.</p>
+        <pre><code># Select key variables and drop any incomplete rows
+key_vars = ['SalePrice', 'GrLivArea', 'BedroomAbvGr', 'FullBath', 'YearBuilt']
+df_clean = df[key_vars].dropna()
+# Result: 0 rows dropped — all 1,460 records were complete</code></pre>
+        <p>A <code>.isnull().sum()</code> check confirmed <strong>zero missing values</strong> in all five variables — no imputation needed.</p>
+    </section>
+
+    <!--  3. EDA  -->
+    <section id="eda">
+        <h2>3. Exploratory Data Analysis</h2>
+
+        <h3>Distributions</h3>
+        <p><strong>SalePrice</strong> and <strong>GrLivArea</strong> are both <em>right-skewed</em> — most homes are moderate in size and price, but a few large, expensive properties pull the average up. Bedroom and bathroom counts are more symmetric and discrete.</p>
+        <img src="01_distributions.png" alt="Distribution Plots for Key Variables" class="project-img">
+
+        <h3>Correlation Heatmap</h3>
+        <p>The heatmap shows that <strong>GrLivArea</strong> (r = 0.709) and <strong>FullBath</strong> (r = 0.561) are the strongest individual predictors of SalePrice. Bedroom count (r = 0.168) is surprisingly weak — likely because bigger homes tend to have more bedrooms, so square footage accounts for most of that signal.</p>
+        <img src="02_correlation_matrix.png" alt="Correlation Heatmap" class="project-img">
+    </section>
+
+    <!--  4. Scatter Plots  -->
+    <section id="scatter">
+        <h2>4. Color-Encoded Scatter Plots</h2>
+        <p>Each scatter plot uses color to encode a <strong>third variable</strong>, revealing multi-dimensional relationships at a glance:</p>
+        <ul>
+            <li><strong>Top-left</strong> (LivArea vs Price, color = FullBath): Larger homes tend to have more baths AND cost more — all three rise together.</li>
+            <li><strong>Top-right</strong> (FullBath vs Price, color = GrLivArea): High-bath, high-price homes are also the largest.</li>
+            <li><strong>Bottom-left</strong> (YearBuilt vs Price, color = Bedrooms): Newer homes command higher prices regardless of bedroom count.</li>
+            <li><strong>Bottom-right</strong> (Bedrooms vs Price, color = YearBuilt): 3-bedroom homes are most common; newer ones fetch notably higher prices.</li>
+        </ul>
+        <img src="03_scatterplots.png" alt="Color-Encoded Scatter Plots" class="project-img">
+    </section>
+
+    <!--  5. Regression  -->
+    <section id="regression">
+        <h2>5. Linear Regression Model</h2>
+        <p>I fit two models using <strong>scikit-learn</strong>, training on 80% of the data (1,168 homes) and testing on the remaining 20% (292 homes).</p>
+
+        <div class="model-grid">
+            <div class="model-box simple">
+                <h4> Simple Regression</h4>
+                <p style="margin:0;font-size:0.85em;color:#555;">GrLivArea → SalePrice only</p>
+                <div class="model-r2">R² = 0.554</div>
+                <table>
+                    <tr><td>RMSE</td><td>$58,472</td></tr>
+                    <tr><td>MAE</td><td>$38,341</td></tr>
+                    <tr><td>Slope</td><td>$102.49 / sq ft</td></tr>
+                </table>
+            </div>
+            <div class="model-box multi">
+                <h4> Multiple Regression</h4>
+                <p style="margin:0;font-size:0.85em;color:#555;">All 4 features → SalePrice</p>
+                <div class="model-r2">R² = 0.706</div>
+                <table>
+                    <tr><td>RMSE</td><td>$47,468</td></tr>
+                    <tr><td>MAE</td><td>$32,045</td></tr>
+                    <tr><td>Improvement</td><td>+15.2 pp over simple</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <h3>Model Equation</h3>
+        <div class="equation">
+            <span class="key">SalePrice</span> = −$1,822,836<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="pos">+ $107.17</span> × GrLivArea<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="neg">− $16,947</span> × BedroomAbvGr<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="neg">− $1,588</span> &nbsp;× FullBath&nbsp;&nbsp;&nbsp;&nbsp;<em style="color:#888;font-size:0.85em;">(controlled for size)</em><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="pos">+ $960</span> &nbsp;&nbsp;× YearBuilt
+        </div>
+        <p><strong>Why is the bedroom coefficient negative?</strong> Once square footage is in the model, adding more bedrooms to the same square footage means smaller rooms — which buyers actually value less. This is a classic example of <em>multicollinearity</em>.</p>
+
+        <h3>Regression Diagnostics</h3>
+        <p>The diagnostic panel includes: simple vs multiple regression lines, predicted vs actual plot, residual plot, residual distribution, feature importance, and model comparison.</p>
+        <img src="04_regression_analysis.png" alt="Regression Diagnostics Panel" class="project-img">
+    </section>
+
+    <!--  6. Predictions  -->
+    <section id="predictions">
+        <h2>6. Sample Predictions</h2>
+        <p>These predictions were generated by the trained multiple regression model (not a hand-coded formula). The ±1σ range uses the model's RMSE of $47,468.</p>
+
+        <table class="pred">
+            <thead>
+                <tr>
+                    <th>Sq Ft</th>
+                    <th>Beds</th>
+                    <th>Baths</th>
+                    <th>Year Built</th>
+                    <th>Predicted Price</th>
+                    <th>Likely Range</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1,000</td><td>2</td><td>1</td><td>1960</td>
+                    <td class="price">$130,399</td>
+                    <td>$82,931 – $177,867</td>
+                </tr>
+                <tr>
+                    <td>1,500</td><td>3</td><td>1</td><td>1990</td>
+                    <td class="price">$195,837</td>
+                    <td>$148,369 – $243,305</td>
+                </tr>
+                <tr>
+                    <td>2,000</td><td>3</td><td>2</td><td>2000</td>
+                    <td class="price">$257,434</td>
+                    <td>$209,966 – $304,902</td>
+                </tr>
+                <tr>
+                    <td>2,500</td><td>4</td><td>2</td><td>2005</td>
+                    <td class="price">$298,873</td>
+                    <td>$251,405 – $346,341</td>
+                </tr>
+                <tr>
+                    <td>3,000</td><td>4</td><td>3</td><td>2010</td>
+                    <td class="price">$355,670</td>
+                    <td>$308,202 – $403,138</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size:0.85em;color:#888;">Note: ±1 RMSE uncertainty band = ±$47,468. The model explains 70.6% of price variance on held-out test data.</p>
+    </section>
+
+    <!--  7. Takeaways  -->
+    <section id="takeaways">
+        <h2>7. Key Takeaways</h2>
+
+        <div class="finding">
+            <span class="icon"></span>
+            <p><strong>Square footage is king.</strong> GrLivArea (r = 0.709) is the dominant predictor. Each additional sq ft adds roughly <strong>$107</strong> in sale price. It's the single most powerful variable in both the simple and multiple models.</p>
+        </div>
+
+        <div class="finding">
+            <span class="icon"></span>
+            <p><strong>Bathrooms are a better investment than bedrooms.</strong> FullBath (r = 0.561) has more than 3× the correlation of bedroom count (r = 0.168). If you're renovating to sell, add a bath before a bedroom.</p>
+        </div>
+
+        <div class="finding">
+            <span class="icon"></span>
+            <p><strong>The age gap is real money.</strong> YearBuilt (r = 0.523) contributes roughly <strong>$960 per year newer</strong>. A 1950 vs. 2005 home at the same size could differ by ~$52,000.</p>
+        </div>
+
+        <div class="finding">
+            <span class="icon"></span>
+            <p><strong>Multiple regression explains 70.6% of price variance</strong> — a 15.2-point R² gain over the single-variable model. Real-world limitations (neighborhood quality, remodels, lot size) explain the remaining ~30%.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Delilah Hollander &mdash; DSA 250</p>
+    </footer>
+
+</div>
+</body>
+</html>

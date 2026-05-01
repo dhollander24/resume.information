@@ -1,0 +1,42 @@
+name: Run Analysis & Update Charts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'DSA250_Housing_Project_Starter.py'
+      - 'train.csv'
+      - 'requirements.txt'
+  workflow_dispatch:   # allows manual trigger from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  run-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run analysis script (regenerate charts)
+        run: python DSA250_Housing_Project_Starter.py
+        env:
+          MPLBACKEND: Agg   # non-interactive matplotlib backend (no display needed)
+
+      - name: Commit updated chart images
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 01_distributions.png 02_correlation_matrix.png 03_scatterplots.png 04_regression_analysis.png
+          git diff --cached --quiet || git commit -m "ci: auto-update chart images [skip ci]"
+          git push
