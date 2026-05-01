@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Delilah Speers Hollander — Criminologist & Data Analyst</title>
+<meta name="description" content="Portfolio and resume of Delilah Speers Hollander — criminologist, data analyst, and community security researcher."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--green:#3E5F44;--green-dark:#2D4632;--green-light:#5a8c63;--cream:#f5f4ef;--white:#ffffff;--text:#1a1a1a;--muted:#555;--border:#d4dcd5;--card:#ffffff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.9rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+nav .brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green);font-weight:700;}
+nav ul{list-style:none;display:flex;gap:1.8rem;}
+nav ul a{font-size:0.85rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}
+nav ul a:hover{color:var(--green);}
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 60%,var(--green-light) 100%);color:var(--white);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;margin-bottom:0.5rem;position:relative;}
+.hero .subtitle{font-size:1.1rem;opacity:0.88;margin-bottom:1.6rem;font-weight:300;letter-spacing:0.02em;}
+.hero-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+.hero-links a{color:var(--white);border:1.5px solid rgba(255,255,255,0.6);padding:0.5rem 1.3rem;border-radius:50px;font-size:0.88rem;font-weight:500;text-decoration:none;transition:all 0.25s;letter-spacing:0.03em;}
+.hero-links a:hover{background:var(--white);color:var(--green-dark);}
+/* LAYOUT */
+.container{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem;}
+/* SECTION */
+section{margin-bottom:3rem;}
+.section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem;}
+h2{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--text);margin-bottom:1.5rem;padding-bottom:0.6rem;border-bottom:2px solid var(--border);}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem 1.8rem;margin-bottom:1.2rem;transition:box-shadow 0.25s,transform 0.25s;}
+.card:hover{box-shadow:0 6px 24px rgba(62,95,68,0.1);transform:translateY(-2px);}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.6rem;flex-wrap:wrap;}
+.card-title{font-weight:600;font-size:1.05rem;color:var(--text);}
+.card-date{font-size:0.82rem;color:var(--green);font-weight:500;white-space:nowrap;background:rgba(62,95,68,0.08);padding:0.2rem 0.7rem;border-radius:50px;}
+.card p{font-size:0.95rem;color:var(--muted);line-height:1.75;}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.5rem;}
+.skill-group h3{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:0.8rem;}
+.tag-list{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.tag{background:rgba(62,95,68,0.08);color:var(--green-dark);font-size:0.82rem;font-weight:500;padding:0.3rem 0.8rem;border-radius:50px;border:1px solid rgba(62,95,68,0.18);}
+/* RESEARCH */
+.paper-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.6rem;margin-bottom:0.9rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:box-shadow 0.25s;}
+.paper-item:hover{box-shadow:0 4px 18px rgba(62,95,68,0.09);}
+.paper-info strong{font-size:0.97rem;color:var(--text);display:block;margin-bottom:0.3rem;}
+.paper-info span{font-size:0.85rem;color:var(--muted);}
+.paper-link{flex-shrink:0;background:var(--green);color:var(--white);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;font-weight:600;text-decoration:none;transition:background 0.2s;}
+.paper-link:hover{background:var(--green-dark);}
+/* ABOUT */
+.about-text p{font-size:1rem;color:#333;margin-bottom:1rem;line-height:1.8;}
+/* FOOTER */
+footer{text-align:center;padding:2rem;background:var(--green-dark);color:rgba(255,255,255,0.7);font-size:0.85rem;}
+footer a{color:rgba(255,255,255,0.9);text-decoration:underline;}
+/* RESPONSIVE */
+@media(max-width:640px){
+.hero h1{font-size:2.2rem;}
+.skills-grid{grid-template-columns:1fr;}
+nav ul{gap:1rem;}
+.card-header{flex-direction:column;}
+.paper-item{flex-direction:column;align-items:flex-start;}
+}
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.fade-in.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="brand">DSH</span>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
+  </ul>
+</nav>
+<header class="hero">
+  <h1>Delilah Speers Hollander</h1>
+  <p class="subtitle">Criminologist &middot; Data Analyst &middot; Community Security Researcher</p>
+  <div class="hero-links">
+    <a href="mailto:delilahshollander@gmail.com">&#9993; Email</a>
+    <a href="https://github.com/dhollander24" target="_blank">&#9679; GitHub</a>
+    <a href="temp_resume.pdf" target="_blank">&#8659; Resume PDF</a>
+  </div>
+</header>
+<div class="container">
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <div class="section-label">Overview</div>
+    <h2>About Me</h2>
+    <div class="about-text">
+      <p>I am an aspiring criminologist and data analyst finishing a Bachelor of Arts in Criminology at Chatham University (Spring 2026), with a double minor in Applied Data Analytics and Business and a certificate in Forensic Social Work.</p>
+      <p>My academic work spans behavioral threat assessment, algorithmic bias in criminal justice, digital surveillance, and institutional risk management. I apply quantitative analysis and data visualization to examine patterns of crime, extremism, and risk prediction in contemporary criminal justice systems.</p>
+      <p>I am especially drawn to Jewish community security and protective intelligence — using data to evaluate threats, strengthen preparedness, and inform evidence-based prevention strategies for vulnerable communities.</p>
+    </div>
+  </section>
+  <!-- EDUCATION -->
+  <section id="education" class="fade-in">
+    <div class="section-label">Academic Background</div>
+    <h2>Education</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Chatham University &mdash; B.A. Criminology</div>
+        <span class="card-date">2021 &ndash; Spring 2026</span>
+      </div>
+      <p>Double minor in Applied Data Analytics and Business. Certificate in Forensic Social Work.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Pittsburgh CAPA (6&ndash;12)</div>
+        <span class="card-date">2016 &ndash; 2020</span>
+      </div>
+    </div>
+  </section>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-in">
+    <div class="section-label">Work History</div>
+    <h2>Experience</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">External Affairs Intern &mdash; Secure Community Network (SCN)</div>
+        <span class="card-date">Oct 2025 &ndash; Present</span>
+      </div>
+      <p>Support SCN in managing relationships and communications with external stakeholders including media, government, and industry partners. Assist in shaping public policy, building partnerships, and maintaining a positive public image for the nation's leading Jewish community security organization.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Security Intern &mdash; Jewish Federation of Greater Pittsburgh</div>
+        <span class="card-date">May &ndash; Aug 2025</span>
+      </div>
+      <p>Supported security operations for the Maccabi Games — one of the largest international Jewish sporting events — covering 1,900+ athletes, 700 volunteers, and nearly 2,000 spectators. Coordinated with 15 local, state, and federal law enforcement agencies including the FBI and State Police. Produced BOLOs, tracked incident data, presented in inter-agency security briefings, and participated in planning for multi-venue operations. Engaged with the Attorney General's office on antisemitism issues and joined my synagogue's security council.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Data Specialist &mdash; Race To The Case (University of Pittsburgh)</div>
+        <span class="card-date">Nov 2024</span>
+      </div>
+      <p>Served as Team Data Specialist for Chatham in UPitt's business competition. Gathered, processed, and analyzed complex datasets to identify supply-chain trends under tight deadlines, producing data-driven recommendations that improved competitive performance.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Intern &mdash; YWCA Greater Pittsburgh</div>
+        <span class="card-date">Nov 2023 &ndash; Jun 2024</span>
+      </div>
+      <p>Built a comprehensive demographic map from raw multi-source data, illustrating populations served by zip code and county. Designed board-level presentation materials for the Mission In Action project (funded by a MacKenzie Scott Grant).</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Teacher &amp; Curriculum Lead &mdash; Dor Hadash Religious School, Rodef Shalom</div>
+        <span class="card-date">Sep 2022 &ndash; Present</span>
+      </div>
+      <p>Now in my fourth year, I have expanded from classroom instruction to coordinating the full yearly curriculum and supporting fellow educators. Provide Hebrew language instruction and guide students through Bar/Bat Mitzvah preparation while leading community services and holiday programming.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Gap Year &mdash; Young Judaea Year Course</div>
+        <span class="card-date">Aug 2020 &ndash; May 2021</span>
+      </div>
+      <p>Nine-month immersive program based in Tel Aviv and Jerusalem. Completed volunteer work, academic study, and cross-cultural engagement across diverse political and community contexts throughout Israel.</p>
+    </div>
+  </section>
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <div class="section-label">Capabilities</div>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Technical</h3>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">HTML &amp; CSS</span>
+          <span class="tag">SQL</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Microsoft Suite</span>
+          <span class="tag">Google Workspace</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Specialized Software</h3>
+        <div class="tag-list">
+          <span class="tag">ArcGIS</span>
+          <span class="tag">NVivo</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Analytical</h3>
+        <div class="tag-list">
+          <span class="tag">Data Visualization</span>
+          <span class="tag">Geospatial Analysis</span>
+          <span class="tag">Statistical Analysis</span>
+          <span class="tag">Threat Assessment</span>
+          <span class="tag">OSINT</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Domain Knowledge</h3>
+        <div class="tag-list">
+          <span class="tag">Community Security</span>
+          <span class="tag">Criminology</span>
+          <span class="tag">Risk Management</span>
+          <span class="tag">Policy Analysis</span>
+          <span class="tag">Extremism Research</span>
+          <span class="tag">Behavioral Threat Assessment</span>
+          <span class="tag">Hate Crime Research</span>
+          <span class="tag">Forensic Social Work</span>
+          <span class="tag">Inter-Agency Coordination</span>
+          <span class="tag">Qualitative Research</span>
+          <span class="tag">Stakeholder Communications</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1rem;font-size:0.88rem;color:var(--muted);font-style:italic;">Full-stack web development (React, Next.js, Node.js, PostgreSQL) applied through independent project work — see Projects below.</p>
+  </section>
+  <!-- RESEARCH -->
+  <section id="research" class="fade-in">
+    <div class="section-label">Academic Output</div>
+    <h2>Research &amp; Writing</h2>
+    <p style="margin-bottom:1.4rem;font-size:0.95rem;color:var(--muted);">My research spans criminological theory, threat assessment, algorithmic bias, and digital surveillance — examining patterns of crime, extremism, and institutional risk through data-driven and theoretical lenses.</p>
+    <div class="paper-item">
+      <div class="paper-info">
+        <strong>Community Security and the Role of Jewish Federations</strong>
+        <span>How Jewish Federations coordinate security preparedness, training, and communication across institutions.</span>
+      </div>
+      <a class="paper-link" href="DH.Community_Security_Role_of_Jewish_Federations.pdf" target="_blank">View &rarr;</a>
+    </div>
+    <div class="paper-item">
+      <div class="paper-info">
+        <strong>Institutional Pathways to Delinquency &mdash; '23</strong>
+        <span>How school-based institutional failures and disciplinary inequities create pathways to juvenile delinquency.</span>
+      </div>
+      <a class="paper-link" href="DH.Institutional_Pathways_To_Delinquency.pdf" target="_blank">View &rarr;</a>
+    </div>
+    <div class="paper-item">
+      <div class="paper-info">
+        <strong>Social Process Theory &amp; Behavioral Threat Assessment &mdash; '24</strong>
+        <span>Applying Social Process Theory to pathway-to-violence models: grievance formation, violent media, and online radicalization.</span>
+      </div>
+      <a class="paper-link" href="Dh.Social_Process_Theory.pdf" target="_blank">View &rarr;</a>
+    </div>
+    <div class="paper-item">
+      <div class="paper-info">
+        <strong>Reentry Challenges in Correctional Systems &mdash; '25</strong>
+        <span>Case analysis of long-term incarceration, recidivism risk, and systemic barriers to successful reentry.</span>
+      </div>
+      <a class="paper-link" href="DH.Reentry_Challenges.pdf" target="_blank">View &rarr;</a>
+    </div>
+    <div class="paper-item">
+      <div class="paper-info">
+        <strong>Invisible Victims: Consequences of Digital Surveillance &mdash; '25</strong>
+        <span>Case study of the NSO Group Pegasus spyware scandal — ethics, geopolitics, and digital privacy governance.</span>
+      </div>
+      <a class="paper-link" href="DH.Pegasus_Spyware_Scandal.pdf" target="_blank">View &rarr;</a>
+    </div>
+    <div class="paper-item">
+      <div class="paper-info">
+        <strong>Algorithmic Risk Assessment in Sentencing (COMPAS) &mdash; '26</strong>
+        <span>Policy analysis of algorithmic tools in sentencing and the legal and ethical challenges of predictive justice.</span>
+      </div>
+      <a class="paper-link" href="DH.Predicting_Risk.pdf" target="_blank">View &rarr;</a>
+    </div>
+  </section>
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-in">
+    <div class="section-label">Independent Work</div>
+    <h2>Projects</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><a href="https://trackantisemitism.org/" target="_blank" style="color:var(--green);text-decoration:none;">Antisemitism Incident Tracker &#8599;</a></div>
+        <span class="card-date">2024 &ndash; Present</span>
+      </div>
+      <p>Full-stack intelligence platform built with Next.js, Node.js, React, and PostgreSQL. Aggregates and visualizes antisemitic incidents in real time using an automated AI-assisted news ingestion pipeline, geospatial mapping, actor network analysis, and interactive trend dashboards. Designed to support community security researchers, Jewish institutions, and policymakers in identifying threat patterns and informing evidence-based prevention strategies. Featured in <a href="https://triblive.com/news/education-classroom/chatham-student-develops-real-time-antisemitism-incident-tracker/" target="_blank" style="color:var(--green);text-decoration:underline;">TribLIVE</a>.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><a href="DSA_KmonkHollander 3/KmonkHollander_FinalReportSouthSide.pdf" target="_blank" style="color:var(--green);text-decoration:none;">The South Side Over a Decade: Data, Change, and the Reputation-Reality Gap &#8599;</a></div>
+        <span class="card-date">Apr 2026 &mdash; DSA400W</span>
+      </div>
+      <p>Co-authored capstone data analysis examining whether Pittsburgh's South Side lives up to its reputation as dangerous and chaotic. Synthesized ten years (2016–2026) of crime incident data, housing violations, development permits, air quality indices, and community center attendance to test the gap between neighborhood reputation and lived reality. Key findings: crime has declined sharply and peaks during daytime hours — not weekend nights; property crime dominates (not violence); housing violations hit a decade high of 21,500 in 2024; air quality improved 50%; and community center attendance collapsed 87% from pre-pandemic levels. Analysis explicitly accounts for COVID-19 as a data artifact rather than a true trend. Concludes that the South Side is a neighborhood experiencing contradictory changes simultaneously — not a simple story in either direction.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><a href="dsa250-housing/index.html" target="_blank" style="color:var(--green);text-decoration:none;">Ames Housing Price Analysis — Multivariate Regression &#8599;</a></div>
+        <span class="card-date">2025</span>
+      </div>
+      <p>Python-based regression analysis of 1,460 homes from the Ames Housing Dataset. Built and compared simple and multiple linear regression models (pandas, scikit-learn, seaborn) to predict sale price from square footage, bathroom count, bedroom count, and year built. Achieved R² of ~0.65 with the multi-feature model. Key insight: bedroom count shows positive correlation with price in isolation but a negative coefficient when square footage is controlled — a clear demonstration of multicollinearity. Included full train/test split, residual analysis, and feature importance visualization.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><a href="https://dhollander24.github.io/studysmart-kits/" target="_blank" style="color:var(--green);text-decoration:none;">StudySmart Kits &#8599;</a></div>
+        <span class="card-date">2024</span>
+      </div>
+      <p>Entrepreneurship capstone project — a student-focused product concept and landing page exploring accessible, low-cost study tools for underserved learners.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><a href="https://dhollander24.github.io/mahloketmatters.dorhadash/" target="_blank" style="color:var(--green);text-decoration:none;">Mahloket Matters &#8599;</a></div>
+        <span class="card-date">2023</span>
+      </div>
+      <p>Interactive resource site built to support a Jewish dialogue seminar led by Karen Morris at Rodef Shalom, facilitating structured debate and civil discourse around contested topics.</p>
+    </div>
+  </section>
+  <div style="text-align:center;margin:2rem 0;">
+    <a href="mailto:delilahshollander@gmail.com" style="display:inline-block;background:var(--green);color:#fff;padding:0.85rem 2.2rem;border-radius:50px;font-weight:600;font-size:0.95rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s;" onmouseover="this.style.background='#2D4632'" onmouseout="this.style.background='#3E5F44'">Get In Touch</a>
+  </div>
+</div>
+<footer>
+  &copy; 2026 Delilah Speers Hollander &mdash; <a href="mailto:delilahshollander@gmail.com">delilahshollander@gmail.com</a>
+</footer>
+<script>
+const els=document.querySelectorAll('.fade-in');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});
+els.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
